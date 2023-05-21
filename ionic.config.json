@@ -1,0 +1,7 @@
+{
+  "name": "BlueDevice",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>bluetooth</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-margin">
+  <div class="bloc-toggle d-f-c ion-padding">
+    <ion-toggle checked={{valueChecked}} (ionChange)="toggleChanged($event)"></ion-toggle>
+    <span *ngIf="valueChecked; else otherB"> activé</span>
+    <ng-template #otherB> désactivé</ng-template>
+  </div>
+  <div class="d-f-s ion-padding">
+    <ion-button (click)="searchAppareil()" expand="block" id="open-loading">
+      Rechercher
+    </ion-button>
+    <ion-button *ngIf="ifScan" (click)="stopScan()" expand="block">
+      Stop scan
+    </ion-button>
+  </div>
+  <div class="bloc-listAppareil ion-padding">
+    {{listAppareilsTest}}
+    
+  </div> <br><br><br><br>
+  <div class="bloc-listAppareil ion-padding">
+    {{devi}}
+  </div>
+  <ion-loading trigger="open-loading" message="Loading......." [duration]="3000" spinner="circles"
+    isOpen="true"></ion-loading>
+</ion-content>

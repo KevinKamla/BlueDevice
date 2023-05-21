@@ -1,0 +1,71 @@
+.cylinder {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    width: 80px;
+    height: 250px;
+    border-radius: 50px/25px;
+    background-color: rgba(160, 160, 160, 0.5);
+}
+
+.cylinder:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+}
+
+.content-cylinder {
+    position: absolute;
+    width: 100%;
+    background: #2744e4;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.lightning {
+    position: relative;
+    width: 40px;
+}
+
+// .lightning:before,
+.lightning:after {
+    content: "";
+    position: absolute;
+    background-color: rgb(224, 224, 37);
+}
+
+.lightning:before {
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
+
+.lightning:after {
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+
+.progress-bar {
+    margin-left: 6px;
+    width: 95%;
+    height: 15px;
+    background: rgb(153, 152, 152);
+    border-radius: 0 10px 10px 0;
+
+    .progress {
+        background: rgb(2, 130, 189);
+        height: 100%;
+        border-radius: 0 10px 10px 0;
+    }
+
+}

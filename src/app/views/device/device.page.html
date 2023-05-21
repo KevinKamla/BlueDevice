@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>device</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <div class="cylinder">
+      <div class="content-cylinder" [ngStyle]="{'height':''+[batteryLevele]+'%'}">
+        <div class="lightning" *ngIf="isCharging"></div>
+      </div>
+    </div>
+    <ion-item>
+      <ion-label>Battery Level</ion-label>
+      <ion-badge slot="end">{{ batteryLevele }}%</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Charging</ion-label>
+      <ion-badge slot="end" [ngClass]="{ 'charging-badge': isCharging }">
+        {{ isCharging ? 'Charging' : 'Not Charging' }}
+      </ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Device Name</ion-label>
+      <ion-badge slot="end">{{ deviceName }}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Device Model</ion-label>
+      <ion-badge slot="end">{{ deviceModel }}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Platform Name</ion-label>
+      <ion-badge slot="end">{{ platform }}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Device version</ion-label>
+      <ion-badge slot="end">{{ osVersion }}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Fabricant</ion-label>
+      <ion-badge slot="end">{{ manufacturer }}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Total Storage</ion-label>
+      <ion-badge slot="end">{{ totalStorage }} Gb</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Used Storage</ion-label>
+      <ion-badge slot="end">{{ usedStorage }} Gb</ion-badge>
+    </ion-item>
+    <div class="progress-bar">
+      <div class="progress" [style.width]="progress1 + '%'"></div>
+    </div>
+    <ion-item>
+      <ion-label>Free Storage</ion-label>
+      <ion-badge slot="end">{{ freeStorage }} Gb</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Language</ion-label>
+      <ion-badge slot="end">{{ language }}</ion-badge>
+    </ion-item>
+  </ion-list>
+</ion-content>
