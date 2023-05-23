@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>selectdevices</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="d-f-c"><img style="height: 150px;" src={{imgae}} alt="" srcset=""></div>
+  <ion-list>
+    <ion-item *ngFor="let device of devices" (click)="sendToDevice(device)">
+        <span>
+          <ion-icon name="phone-portrait"></ion-icon>
+          <ion-item>
+            <b> Nom : {{ device.name }}</b>
+            <b> Id : {{ device.id }}</b>
+          </ion-item>
+        </span>
+    </ion-item>
+  </ion-list>
+</ion-content>

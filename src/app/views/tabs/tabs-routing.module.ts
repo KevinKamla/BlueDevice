@@ -29,6 +29,10 @@ const routes: Routes = [
         path: 'apropos',
         loadChildren: () => import('../../views/apropos/apropos.module').then(m => m.AproposPageModule)
       },
+      {
+        path: 'selectdevices',
+        loadChildren: () => import('../../views/selectdevices/selectdevices.module').then( m => m.SelectdevicesPageModule)
+      },
     ]
   }
 ];

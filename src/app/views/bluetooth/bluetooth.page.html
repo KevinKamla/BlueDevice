@@ -12,20 +12,60 @@
     <ng-template #otherB> désactivé</ng-template>
   </div>
   <div class="d-f-s ion-padding">
-    <ion-button (click)="searchAppareil()" expand="block" id="open-loading">
+    <!-- <ion-button (click)="searchAppareil()" expand="block" id="open-loading">
       Rechercher
     </ion-button>
     <ion-button *ngIf="ifScan" (click)="stopScan()" expand="block">
       Stop scan
+    </ion-button> -->
+  </div>
+
+
+
+
+
+  <div class="container">
+    <ion-button (click)="startScan()">Rechercher</ion-button>
+    <ion-list>
+      <ion-item *ngFor="let device of devices" (click)="connectToDevice(device)">
+        <ion-label>
+          <span>
+            <ion-icon name="phone-portrait"></ion-icon>
+            <ion-item>
+              <b> Nom : {{ device.name }}</b>
+              <b> Id : {{ device.id }}</b>
+              <ion-icon (click)="presentActionSheet(device)" slot="end" name="settings"></ion-icon>
+            </ion-item>
+          </span>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="home-container">
+    <ion-button color="primary" (click)="getImage()">
+      <ion-icon slot="start" name="camera"></ion-icon>Photo
     </ion-button>
+
+    <ion-card *ngFor="let image of list_image">
+      <img src={{image}}>
+      <div class="ion-text-center" fill="clear">
+        <ion-button slot="start" (click)="handleShare(image)" [routerLink]="['selectdevices']">
+          <ion-icon name="share" color=""></ion-icon> partager</ion-button>
+      </div>
+    </ion-card>
   </div>
-  <div class="bloc-listAppareil ion-padding">
-    {{listAppareilsTest}}
-    
-  </div> <br><br><br><br>
-  <div class="bloc-listAppareil ion-padding">
-    {{devi}}
-  </div>
-  <ion-loading trigger="open-loading" message="Loading......." [duration]="3000" spinner="circles"
+
+
+
+
+
+
+
+
+
+
+
+
+  <ion-loading trigger="open-loading" message="Loading......." [duration]="1000" spinner="circles"
     isOpen="true"></ion-loading>
 </ion-content>
